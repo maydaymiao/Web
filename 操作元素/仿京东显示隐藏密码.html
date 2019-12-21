@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .box {
+        position: relative;
+        width: 400px;
+        border-bottom: 1px solid #cccccc;
+        margin: 100px auto;
+      }
+
+      .box input {
+        width: 370px;
+        height: 30px;
+        border: 0;
+        outline: none;
+      }
+
+      .box img {
+        position: absolute;
+        top: 2px;
+        right: 2px;
+        width: 24px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <input type="password" name="" id="pwd" />
+      <label for="">
+        <img src="../images/hideP.jpg" alt="" id="eye" />
+      </label>
+    </div>
+    <script>
+      let pwd = document.querySelector("#pwd");
+      let eye = document.querySelector("#eye");
+      let flag = 1;
+      eye.onclick = function() {
+        if (flag == 0) {
+          pwd.type = "password";
+          eye.src = "../images/hideP.jpg";
+          flag = 1;
+        } else {
+          pwd.type = "text";
+          eye.src = "../images/showP.png";
+          flag = 0;
+        }
+      };
+    </script>
+  </body>
+</html>

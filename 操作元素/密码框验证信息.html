@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 600px;
+        margin: 100px;
+      }
+
+      .message {
+        display: inline-block;
+        font-size: 12px;
+        color: #999;
+        padding-left: 30px;
+        background: url(../images/mess.png) no-repeat left center;
+      }
+
+      .warning {
+        color: red;
+        background: url(../images/warning.png) no-repeat left center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="register">
+      <input type="password" class="ipt" />
+      <p class="message">请输入6~16位密码</p>
+    </div>
+    <script>
+      // 首先判断的事件是失去焦点 onblur
+      // 如果输入正确信息，则显示打钩小图标变化
+      // 如果输入不是6-16位，显示警告图标
+      // 用className修改样式
+      let pwd = document.querySelector(".ipt");
+      let msg = document.querySelector(".message");
+      pwd.onblur = function() {
+        let length = pwd.value.length;
+        if (length >= 6 && length <= 16) {
+          console.dir(msg);
+          msg.innerHTML = "pass";
+          msg.style.background = "url(../images/yes.png) no-repeat left center";
+        } else if (length == 0) {
+        } else {
+          msg.className = "message warning";
+          msg.innerHTML = "输入的位数不对";
+        }
+      };
+    </script>
+  </body>
+</html>

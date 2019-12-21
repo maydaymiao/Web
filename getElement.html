@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!-- <script src="main.js"></script> -->
+  </head>
+  <body>
+    <ul>
+      <li>主页</li>
+      <li>产品</li>
+      <li>联系</li>
+    </ul>
+    <ol id="ol">
+      <li>Michael</li>
+      <li>Jenny</li>
+      <li>Webber</li>
+    </ol>
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="greeting">你好</div>
+
+    <script>
+      let greeting = document.getElementById("greeting");
+      console.log(greeting);
+      let box = document.getElementsByClassName("box");
+      console.log(box);
+      let allLi = document.getElementsByTagName("li");
+      console.log(allLi);
+      //   由于返回回来的ol是一个对象（伪数组，即使里面只有一个元素），所以下面要把那个元素提取出来先
+      let ol = document.getElementsByTagName("ol");
+      let olLi = ol[0].getElementsByTagName("li");
+      console.log("第一次返回的是一个伪数组形式，因为是tag");
+      console.log(ol);
+      console.log(olLi);
+      //   还有一种办法，就是为ol标签加一个id
+      let olId = document.getElementById("ol");
+      let olIdLi = olId.getElementsByTagName("li");
+      console.log("第二次返回的是一个具体的element对象，因为是id");
+      console.log(olId);
+      console.log(olIdLi);
+
+      let boxes = document.getElementsByClassName("box");
+      console.log(boxes);
+
+      //   querySelector返回指定选择器的第一个元素对象，选择器里一定要加符号
+      let qBoxes = document.querySelector(".box");
+      console.log(qBoxes);
+      let qGreeting = document.querySelector("#greeting");
+      console.log(qGreeting);
+      let qLi = document.querySelector("li");
+      console.log(qLi);
+
+      //   querySelectorAll()返回指定选择器的所有元素对象集合
+      let qaBoxes = document.querySelectorAll(".box");
+      console.log(qaBoxes);
+    </script>
+  </body>
+</html>

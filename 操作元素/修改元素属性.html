@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="circle">圆形</button>
+    <button id='square'>正方形</button>
+    <br>
+    <img src="../images/圆形.jpeg" alt="" width="100">
+    <script>
+        let square = document.querySelector('#square');
+        let img = document.querySelector('img');
+        let circle = document.querySelector('#circle')
+        console.log(img);
+        square.onclick = function () {
+            img.src = '../images/正方形.jpeg';
+        }
+        circle.onclick = () => {
+            img.src = '../images/圆形.jpeg';
+        }
+    </script>
+</body>
+
+</html>

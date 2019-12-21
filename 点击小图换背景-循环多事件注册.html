@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: url(./images/风景1.jpg) no-repeat center top;
+    }
+
+    .baidu {
+      overflow: hidden;
+      margin: 100px;
+      background-color: #fff;
+      width: 410px;
+      padding-top: 3px;
+    }
+
+    .baidu li {
+      float: left;
+      margin: 0 1px;
+      cursor: pointer;
+    }
+
+    .baidu img {
+      width: 100px;
+    }
+
+    li {
+      list-style: none;
+    }
+  </style>
+  <body>
+    <ul class="baidu">
+      <li><img src="./images/风景1.jpg" alt="" /></li>
+      <li><img src="./images/风景2.jpg" alt="" /></li>
+      <li><img src="./images/风景3.jpg" alt="" /></li>
+      <li><img src="./images/风景4.jpg" alt="" /></li>
+    </ul>
+    <script>
+      let images = document.querySelectorAll("li");
+      for (let i = 0; i < images.length; i++) {
+        images[i].onclick = function() {
+          let photoPath = images[i].children[0].src;
+          document.body.style.backgroundImage = `url(${photoPath})`;
+        };
+      }
+    </script>
+  </body>
+</html>

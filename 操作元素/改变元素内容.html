@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>显示当前系统时间</button>
+    <div style="background-color: pink;">某个时间</div>
+    <p></p>
+    <script>
+      let getDate = () => {
+        let today = new Date();
+        let year = today.getFullYear();
+        let month = today.getMonth() + 1;
+        let date = today.getDate();
+        let week = today.getDay();
+        let weekArr = ["日", "一", "二", "三", "四", "五", "六"];
+        let day = weekArr[week];
+        return `今天是${year}年${month}月${date}日，周${day}`;
+      };
+
+      let btn = document.querySelector("button");
+      let div = document.querySelector("div");
+      btn.onclick = function() {
+        div.innerHTML = getDate();
+      };
+
+      //   元素可以不用添加事件
+      let p = document.querySelector("p");
+      p.innerHTML = getDate();
+    </script>
+  </body>
+</html>

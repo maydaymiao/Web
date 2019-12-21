@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div></div>
+    <br>
+    <img src="../images/上午好.jpeg" alt="" width="100">
+    <script>
+        let now = new Date().getHours();
+        let img = document.querySelector('img')
+        let div = document.querySelector('div');
+        console.log(now);
+        if (now > 7 && now <= 12) {
+            div.innerHTML = '上午好';
+            img.src = '../images/上午好.jpeg';
+        } else if (now > 12 && now <= 18) {
+            div.innerHTML = '下午好'
+            img.src = '../images/下午好.jpg';
+        } else {
+            div.innerHTML = '晚上好'
+            img.src = '../images/晚上好.jpg';
+        }
+    </script>
+</body>
+
+</html>

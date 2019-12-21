@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <input type="text" value="输入内容">
+    <script>
+        let btn = document.querySelector('button');
+        let input = document.querySelector('input');
+        btn.onclick = () => {
+            // 表单里的内容是通过value来修改的
+            input.value = "你点击了按钮！";
+            // 点击完一次后按钮禁用，下面也可以把btn改成this，this指向的是事件函数的调用者，也就是btn
+            btn.disabled = true;
+        }
+    </script>
+</body>
+
+</html>
