@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    table {
+      width: 500px;
+      margin: 100px auto;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td,
+    th {
+      border: 1px solid #333;
+    }
+
+    thead tr {
+      height: 40px;
+      background-color: #cccccc;
+    }
+  </style>
+  <body>
+    <table cellspacing="0">
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>科目</th>
+          <th>成绩</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </body>
+  <script>
+    //   1.创建数据
+    let data = [
+      {
+        name: "Michael",
+        subject: "JavaScript",
+        score: 100
+      },
+      {
+        name: "Webber",
+        subject: "JavaScript",
+        score: 60
+      },
+      {
+        name: "Jenny",
+        subject: "JavaScript",
+        score: 90
+      },
+      {
+        name: "Gary",
+        subject: "JavaScript",
+        score: 80
+      }
+    ];
+    // 2. 往tbody里创建行：有几个人创建几行
+    let tbody = document.querySelector("tbody");
+    for (var i = 0; i < data.length; i++) {
+      // 创建tr，并插入tbody
+      let tr = document.createElement("tr");
+      tbody.appendChild(tr);
+      // 创建单元格td(跟数据有关系的内容)，单元格的数量取决于每个对象里的个数
+      for (var j in data[i]) {
+        let td = document.createElement("td");
+        tr.appendChild(td);
+        td.innerHTML = data[i][j];
+      }
+      // 创建“删除”单元格
+      let td = document.createElement("td");
+      td.innerHTML = '<a href="javascript:;">删除</a>';
+      tr.appendChild(td);
+    }
+    let remove = document.querySelectorAll("a");
+    remove.forEach(element => {
+      element.onclick = function() {
+        // this是删除的a标签，this.parentNode为删除的单元格，this.parentNode.parentNode为整行
+        tbody.removeChild(this.parentNode.parentNode);
+      };
+    });
+  </script>
+</html>

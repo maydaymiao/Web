@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>传统注册事件</button>
+    <button>方法监听注册事件</button>
+  </body>
+  <script>
+    // 注册事件有两种方式：传统方式和监听注册方式
+    // 传统方式就是利用on开头的事件onclick，特点是唯一性，同一个元素同一个事件只能设置一个处理函数，最后注册的处理函数会覆盖前面的
+
+    // 方法监听注册方式：addEventListener()，App开发都用这个方式，特点：同一个元素同一个事件可以注册多个监听器。
+    // eventTarget.addEventListener(type, 事件处理函数)
+    var btns = document.querySelectorAll("button");
+    btns[0].onclick = function() {
+      alert("第一次注册");
+    };
+    btns[0].onclick = function() {
+      alert("第二次注册，前面那次注册不会执行");
+    };
+
+    // 里面的事件类型是字符串，必须加引号，而且不带on
+    btns[1].addEventListener("click", function() {
+      alert("第一次注册，点击确定，第二次注册继续执行");
+    });
+    btns[1].addEventListener("click", function() {
+      alert("第二次注册");
+    });
+  </script>
+</html>

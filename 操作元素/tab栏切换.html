@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    .tab_list li {
+      float: left;
+      height: 39px;
+      line-height: 39px;
+      padding: 0 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .tab_list .current {
+      background-color: #c81623;
+      color: #fff;
+    }
+    .item {
+      display: none;
+    }
+
+    .tab_con {
+      padding: 80px 40px;
+    }
+  </style>
+  <body>
+    <!-- 大块（包含tab标题和内容） -->
+    <div class="tab">
+      <div class="tab_list">
+        <ul>
+          <li class="current">商品介绍</li>
+          <li>规格与包装</li>
+          <li>售后保障</li>
+          <li>商品评价(5000)</li>
+          <li>手机社区</li>
+        </ul>
+      </div>
+      <div class="tab_con">
+        <div class="item" style="display: block;">商品介绍模块内容</div>
+        <div class="item">规格于包装模块内容</div>
+        <div class="item">售后保障模块内容</div>
+        <div class="item">商品评价模块内容</div>
+        <div class="item">手机社区模块内容</div>
+      </div>
+    </div>
+    <script>
+      // 1. 上面的模块tab，点击某一个，当前这一个底色会是红色，其他不变（通过修改类名方式）
+      let tabs = document.querySelectorAll(".tab_list li");
+      let divs = document.querySelectorAll(".item");
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].setAttribute("data-index", i);
+        tabs[i].onclick = function() {
+          // 再用一个循环，先把所有的元素的className设为空
+          tabs.forEach(element => {
+            element.className = "";
+          });
+          // 再把当前对象的className设为current
+          this.className = "current";
+
+          // 2. 下面的模块内容，会跟随上面的选项卡发生变化，最难的是获取点了哪个tab，所以回过头来，在for循环的第一行加一个data-index自定义属性
+          // 核心思路：给上面的tab_list里面所有的list添加自定义属性(data-index)，从0开始编号
+          let indexCurrent = this.getAttribute("data-index");
+          console.log(indexCurrent);
+          console.log(divs);
+          divs.forEach(element => {
+            element.style.display = "";
+          });
+          //   注意这里不能用i作为索引，会报错，因为作用域的问题
+          divs[indexCurrent].style.display = "block";
+        };
+      }
+    </script>
+  </body>
+</html>

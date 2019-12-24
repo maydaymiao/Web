@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <style>
+    .nav li {
+      list-style-type: none;
+      margin: 20px;
+      float: left;
+      height: 100%;
+      line-height: 41px;
+      color: #333;
+    }
+
+    .nav li a:hover {
+      background-color: #eee;
+    }
+
+    .nav ul {
+      display: none;
+      position: absolute;
+      top: 41px;
+      left: 0;
+      width: 100%;
+      border-left: 1px solid #fecc5b;
+      border-right: 1px solid #fecc5b;
+    }
+
+    .nav ul li {
+      border-bottom: 1px solid #fecc5b;
+    }
+
+    .nav ul li a:hover {
+      background-color: fecc5b;
+    }
+  </style>
+  <body>
+    <ul class="nav">
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li><a href="">私信</a></li>
+          <li><a href="">评论</a></li>
+          <li><a href="">@我</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li><a href="">私信</a></li>
+          <li><a href="">评论</a></li>
+          <li><a href="">@我</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li><a href="">私信</a></li>
+          <li><a href="">评论</a></li>
+          <li><a href="">@我</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">微博</a>
+        <ul>
+          <li><a href="">私信</a></li>
+          <li><a href="">评论</a></li>
+          <li><a href="">@我</a></li>
+        </ul>
+      </li>
+    </ul>
+  </body>
+  <script>
+    let nav = document.querySelector(".nav");
+    let lis = nav.children;
+    for (let i = 0; i < lis.length; i++) {
+      lis[i].onmouseover = function() {
+        //   四大list下面的第二个子节点是ul，我们要把ul给显示出来，所以index是1
+        this.children[1].style.display = "block";
+      };
+      lis[i].onmouseout = function() {
+        this.children[1].style.display = "none";
+      };
+    }
+  </script>
+</html>
