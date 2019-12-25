@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        height: 50px;
+        width: 50px;
+        background-color: pink;
+    }
+</style>
+
+<body>
+    <div>123</div>
+    <ul>
+        <li>abc1</li>
+        <li>abc2</li>
+        <li>abc3</li>
+    </ul>
+    <a href="http://www.baidu.com">百度</a>
+    <form action="http://www.baidu.com">
+        <input type="submit" value="提交" name="sub">
+    </form>
+</body>
+<script>
+    var div = document.querySelector('div');
+    div.addEventListener('click', function (e) {
+        // e.target返回的是触发事件的对象，this返回的是绑定事件的对象
+        console.log(e.target); //<div>123</div>
+        console.log(this); //<div>123</div>
+        console.log(e.type) // click (注意不带on)
+    })
+
+    var ul = document.querySelector('ul');
+    ul.addEventListener('click', function (e) {
+        // 鼠标点abc1
+        console.log(e.target); //<li>abc1</li>
+        console.log(this); //<ul>...</ul>
+    })
+
+    // 阻止默认行为（事件），让链接不跳转，或者让提交按钮不提交
+    var a = document.querySelector('a');
+    a.addEventListener('click', function (e) {
+        e.preventDefault(); // 此时再点击“百度”不生效
+    })
+</script>
+
+</html>

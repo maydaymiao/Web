@@ -1,58 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
-  </head>
-  <body>
-    <textarea name="" id="" cols="30" rows="10"></textarea>
-    <button>发布</button>
-    <ul></ul>
-  </body>
-  <style>
-    li {
-      width: 300px;
-    }
-    li a {
-      float: right;
-    }
-  </style>
-  <script>
-    //   总是要先获取父节点
-    // 增加节点步骤：1.创建节点元素 document.createElement('tagname') 2.插入节点 node.appendchild(child), node.insertBefore(child, 指定元素)。这里node是父节点
-    // 删除节点：node.removeChild(child)
-    // 复制节点：node.cloneNode()  这里的node是你要clone的对象，不是父节点！如果括号里面为空或者false，则是浅拷贝-只复制标签，不复制里面的内容；括号里面为true的话，则为深拷贝-会拷贝里面的内容
-    let text = document.querySelector("textarea");
-    let btn = document.querySelector("button");
-    let ul = document.querySelector("ul");
 
-    btn.onclick = function() {
-      if (text.value == "") {
-        alert("您没有输入任何内容");
-        return false;
-      } else {
-        let li = document.createElement("li");
-        let a = document.createElement("a");
-        // href的值为'javascript:;', 可以阻止链接跳转
-        a.setAttribute("href", "javascript:;");
-        a.text = "删除";
-        li.innerHTML = text.value;
-        // ul.appendChild(li);
-        ul.insertBefore(li, ul.children[0]);
-        li.appendChild(a);
-        text.value = ""; //输入完毕后，textarea内容清空
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+</head>
 
-      let deleteMessages = document.querySelectorAll("a");
-      console.log(deleteMessages);
-      for (var i = 0; i < deleteMessages.length; i++) {
-        deleteMessages[i].onclick = function() {
-          // 这里的this指向的是a节点，要删除的对象是这个a节点所在的list，也就是a的parent，而a的parent的父节点为ul
-          ul.removeChild(this.parentNode);
-        };
-      }
-    };
-  </script>
+<body>
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+  <button>发布</button>
+  <ul></ul>
+</body>
+<style>
+  li {
+    width: 300px;
+  }
+
+  li a {
+    float: right;
+  }
+</style>
+<script>
+  //   总是要先获取父节点
+  // 增加节点步骤：1.创建节点元素 document.createElement('tagname') 2.插入节点 node.appendchild(child), node.insertBefore(child, 指定元素)。这里node是父节点
+  // 删除节点：node.removeChild(child)
+  // 复制节点：node.cloneNode()  这里的node是你要clone的对象，不是父节点！如果括号里面为空或者false，则是浅拷贝-只复制标签，不复制里面的内容；括号里面为true的话，则为深拷贝-会拷贝里面的内容
+  let text = document.querySelector("textarea");
+  let btn = document.querySelector("button");
+  let ul = document.querySelector("ul");
+
+  btn.onclick = function () {
+    if (text.value == "") {
+      alert("您没有输入任何内容");
+      return false;
+    } else {
+      let li = document.createElement("li");
+      let a = document.createElement("a");
+      // href的值为'javascript:;', 可以阻止链接跳转
+      // a.setAttribute("href", "javascript:;");
+      // a.text = "删除";
+      a.innerHTML = '<a href="javascript:;">删除</a>';
+      li.innerHTML = text.value;
+      // ul.appendChild(li);
+      ul.insertBefore(li, ul.children[0]);
+      li.appendChild(a);
+      text.value = ""; //输入完毕后，textarea内容清空
+    }
+
+    let deleteMessages = document.querySelectorAll("a");
+    console.log(deleteMessages);
+    for (var i = 0; i < deleteMessages.length; i++) {
+      deleteMessages[i].onclick = function () {
+        // 这里的this指向的是a节点，要删除的对象是这个a节点所在的list，也就是a的parent，而a的parent的父节点为ul
+        ul.removeChild(this.parentNode);
+      };
+    }
+  };
+</script>
+
 </html>
