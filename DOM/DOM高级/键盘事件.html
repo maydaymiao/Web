@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // 1. keyup: 按键弹起的时候触发
+    document.addEventListener('keyup', function () {
+        console.log('我弹起了');
+    })
+    // 2. keydown：按键按下的时候触发
+    document.addEventListener('keydown', function (e) {
+        console.log('我按下了keydown');
+        console.log(e.keyCode); //  得到相应键的ASCII码值
+    })
+    // 3. keypress：按键按下的时候触发, 但是它不识别功能键，如ctrl shift 箭头等
+    document.addEventListener('keypress', function () {
+        console.log('keypress');
+    })
+
+    // 4. 三个事件的执行顺序是：keydown -> keypress -> keyup
+    // 5. keyup和keydown事件的keyCode不区分大小写（a和A得到的都是65）；keypress区分大小写
+    // keydown和keypress再文本框里的特点：他们两个事件触发的时候，文字还没有落入文本框；keyup事件触发时，文字已经落入文本框
+</script>
+
+</html>

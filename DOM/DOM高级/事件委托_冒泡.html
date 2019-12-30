@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>事件委托，冒泡原理1</li>
+        <li>事件委托，冒泡原理2</li>
+        <li>事件委托，冒泡原理3</li>
+        <li>事件委托，冒泡原理4</li>
+        <li>事件委托，冒泡原理5</li>
+    </ul>
+</body>
+<script>
+    // 事件委托核心原理：给父节点添加监听器，利用事件冒泡影响每一个子节点，节省开销，提升效率
+    var ul = document.querySelector('ul');
+    ul.addEventListener('click', function (e) {
+        alert(e.target.innerText)
+    })
+</script>
+
+</html>
